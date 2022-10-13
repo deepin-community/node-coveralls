@@ -1,0 +1,49 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+
+# Uncomment this to turn on verbose mode.
+export DH_VERBOSE=1
+
+include /usr/share/dpkg/pkg-info.mk
+
+%:
+	dh $@
+
+TOOLNAME=node-coveralls
+
+do_subst = sed -e 's/[@]VERSION[@]/$(DEB_VERSION_UPSTREAM)/g' \
+               -e 's/[@]TOOLNAME[@]/$(TOOLNAME)/g'
+
+debian/links: debian/links.in
+	$(do_subst) $< > $@
+debian/manpages: debian/manpages.in
+	$(do_subst) $< > $@
+
+override_dh_auto_configure: debian/links debian/manpages
+	cp -f "debian/@TOOLNAME@.1.xml.in" "debian/$(TOOLNAME).1.xml.in"
+
+override_dh_fixperms:
+	dh_fixperms
+	chmod a+x debian/node-coveralls/usr/share/nodejs/coveralls/bin/coveralls.js
+
+%.1.xml : %.1.xml.in
+	$(do_subst) $< > $@
+%.1: %.1.xml
+	cd $(dir $<) &&  docbook2x-man --encoding=utf-8 $(notdir $<)
+
+ifeq (,$(filter nodoc,$(DEB_BUILD_OPTIONS) $(DEB_BUILD_PROFILES)))
+override_dh_installman: debian/$(TOOLNAME).1
+	dh_installman
+else
+override_dh_installman:
+endif
+
+override_dh_installman_clean:
+	rm -rf debian/*.1.xml
+	rm -rf debian/*.1
+
+override_dh_clean: override_dh_installman_clean
+	rm -f debian/links
+	rm -f debian/manpages
+	rm -f "$(TOOLNAME).1.xml.in"
+	dh_clean

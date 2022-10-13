@@ -1,0 +1,110 @@
+node-coveralls (3.1.0-2) unstable; urgency=medium
+
+  * Team upload
+  * Bump debhelper compatibility level to 13
+  * Use dh-sequence-nodejs
+  * Add fix to replace request by node-fetch (Closes: #958681)
+
+ -- Xavier Guimard <yadd@debian.org>  Wed, 04 Nov 2020 17:21:17 +0100
+
+node-coveralls (3.1.0-1) unstable; urgency=medium
+
+  * Team upload
+  * Declare compliance with policy 4.5.0
+  * New upstream version 3.1.0
+  * Refresh patches
+  * Use pkg-js-tools auto test & install
+
+ -- Xavier Guimard <yadd@debian.org>  Mon, 25 May 2020 12:16:39 +0200
+
+node-coveralls (3.0.9-2) unstable; urgency=medium
+
+  * Team upload
+  * Update patches to be compatible with node-sinon 8
+  * Fix copyright
+
+ -- Xavier Guimard <yadd@debian.org>  Thu, 26 Dec 2019 08:20:11 +0100
+
+node-coveralls (3.0.9-1) unstable; urgency=medium
+
+  * Team upload
+  * Switch debian/watch to github tags
+  * New upstream version 3.0.9
+  * Refresh patches
+
+ -- Xavier Guimard <yadd@debian.org>  Sat, 07 Dec 2019 14:08:33 +0100
+
+node-coveralls (3.0.6-4) unstable; urgency=medium
+
+  * Team upload
+  * Fix autopkgtest dependencies
+
+ -- Xavier Guimard <yadd@debian.org>  Sun, 01 Dec 2019 22:15:09 +0100
+
+node-coveralls (3.0.6-3) unstable; urgency=medium
+
+  * Team upload
+  * Back to unstable (node-sinon migration)
+
+ -- Xavier Guimard <yadd@debian.org>  Tue, 19 Nov 2019 06:46:04 +0100
+
+node-coveralls (3.0.6-2) experimental; urgency=medium
+
+  * Team upload
+  * Add missing pristine-tar files
+  * Declare compliance with policy 4.4.1
+  * Add debian/gbp.conf
+  * Update debian/watch to use npm registry
+  * Add upstream/metadata
+  * Drop unneeded version constraints from (build) dependencies
+  * Fix debian/copyright
+  * Require a minimal version for dpkg-dev (fix lintian error)
+  * Fix sinon usage in test (node-sinon ≥ 7 compat)
+  * Require node-sinon ≥ 7.4.2
+
+ -- Xavier Guimard <yadd@debian.org>  Thu, 14 Nov 2019 07:19:31 +0100
+
+node-coveralls (3.0.6-1) unstable; urgency=medium
+
+  * New upstream version: improve azure support
+  * Bump debhelper and policy (no changes)
+  * Move to /usr/share
+
+ -- Bastien Roucariès <rouca@debian.org>  Sun, 15 Sep 2019 18:03:27 +0200
+
+node-coveralls (3.0.2-1) unstable; urgency=medium
+
+  * New upstream version
+  * Bump policy (no changes)
+
+ -- Bastien Roucariès <rouca@debian.org>  Wed, 08 Aug 2018 10:45:32 +0200
+
+node-coveralls (3.0.1-1) unstable; urgency=medium
+
+  * New upstream version
+  * Bump policy (no changes)
+  * Move to salsa
+
+ -- Bastien Roucariès <rouca@debian.org>  Mon, 07 May 2018 13:20:50 +0200
+
+node-coveralls (3.0.0-2) unstable; urgency=medium
+
+  * Fix lintian warnings
+  * Bump compat and policy (no changes)
+  * FTBFS: makes assumptions about build path (Closes: #886287)
+  * Fix cli testsuite
+
+ -- Bastien Roucariès <rouca@debian.org>  Mon, 19 Feb 2018 00:13:57 +0100
+
+node-coveralls (3.0.0-1) unstable; urgency=medium
+
+  * New upstream version
+  * Bump policy (no changes).
+
+ -- Bastien Roucariès <rouca@debian.org>  Thu, 09 Nov 2017 14:43:11 +0100
+
+node-coveralls (2.13.1-1) unstable; urgency=low
+
+  * Initial release (Closes: #874584)
+
+ -- Bastien Roucariès <rouca@debian.org>  Wed, 06 Sep 2017 10:41:00 +0200

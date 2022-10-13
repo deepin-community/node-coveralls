@@ -1,0 +1,4 @@
+Notice that the main tools is called node-coveralls in order to avoid
+a conflict with ruby-coveralls package.
+
+ -- Bastien Roucariès <rouca@debian.org>, Thu,  7 Sep 2017 22:38:20 +0200

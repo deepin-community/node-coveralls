@@ -1,0 +1,22 @@
+Description: Fix path with version in test
+Author: Bastien Roucariès <roucaries.bastien@gmail.com>
+Forwarded: no
+Reviewed-By: Xavier Guimard <yadd@debian.org>
+Last-Update: 2019-12-07
+
+--- a/test/detectLocalGit.js
++++ b/test/detectLocalGit.js
+@@ -54,9 +54,10 @@
+ }
+ 
+ function _deleteFolderRecursive(dir) {
+-  if (!dir.includes(path.normalize('node-coveralls/test'))) {
+-    throw new Error(`Tried to clean a temp git directory that did not match path: ${path.normalize('node-coveralls/test')}`);
+-  }
++  // see #886287
++  //if (!dir.includes(path.normalize('node-coveralls/test'))) {
++  //  throw new Error(`Tried to clean a temp git directory that did not match path: ${path.normalize('node-coveralls/test')}`);
++  //}
+ 
+   if (fs.existsSync(dir)) {
+     fs.readdirSync(dir).forEach(file => {

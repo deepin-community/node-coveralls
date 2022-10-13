@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
+"http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
+<refentry id='@TOOLNAME@1'>
+  <refmeta>
+    <refentrytitle>@TOOLNAME@</refentrytitle>
+    <manvolnum>1</manvolnum>
+    <refmiscinfo class='source'>August 2017</refmiscinfo>
+    <refmiscinfo class='manual'>@TOOLNAME@ @VERSION@</refmiscinfo>
+  </refmeta>
+  <refnamediv>
+    <refname>@TOOLNAME@</refname>
+    <refpurpose>report coverage to coveralls.io service</refpurpose>
+  </refnamediv>
+
+  <refsynopsisdiv>
+    <cmdsynopsis>
+      <command>@TOOLNAME@</command>
+    </cmdsynopsis>
+  </refsynopsisdiv>
+
+
+  <refsect1 id='description'><title>DESCRIPTION</title>
+
+  <para>
+  This program takes standard input from any tool that emits the lcov data format (including mocha's) and send it to coveralls.io to report your code coverage there.
+  Once your app is instrumented for coverage, and building, you need to pipe the lcov output to this command.
+  </para>
+
+  </refsect1>
+
+  <refsect1 id="seealso">
+    <title>See Also</title>
+    <simplelist type="inline">
+      <member><citerefentry><refentrytitle>mocha</refentrytitle><manvolnum>1</manvolnum></citerefentry></member> 
+    </simplelist>
+  </refsect1>
+
+</refentry>
+

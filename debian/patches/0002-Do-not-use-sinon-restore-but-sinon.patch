@@ -1,0 +1,28 @@
+Description: Do not use sinon-restore but sinon
+Author: Bastien Roucariès <roucaries.bastien@gmail.com>
+Forwarded: https://github.com/nickmerwin/node-coveralls/pull/268
+Reviewed-By: Xavier Guimard <yadd@debian.org>
+Last-Update: 2019-12-07
+
+--- a/test/handleInput.js
++++ b/test/handleInput.js
+@@ -3,7 +3,7 @@
+ const fs = require('fs');
+ const sysPath = require('path');
+ const should = require('should');
+-const sinon = require('sinon').sandbox.create();
++const sinon = require('sinon').createSandbox();
+ const logDriver = require('log-driver');
+ const index = require('..');
+ 
+--- a/test/sendToCoveralls.js
++++ b/test/sendToCoveralls.js
+@@ -2,7 +2,7 @@
+ 
+ const should = require('should');
+ const request = require('request');
+-const sinon = require('sinon').sandbox.create();
++const sinon = require('sinon').createSandbox();
+ const logDriver = require('log-driver');
+ const index = require('..');
+ 

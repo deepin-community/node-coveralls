@@ -1,0 +1,64 @@
+Description: replace request by node-fetch
+Author: Xavier Guimard <yadd@debian.org>
+Forwarded: https://github.com/nickmerwin/node-coveralls/issues/309
+Last-Update: 2020-11-04
+
+--- a/lib/sendToCoveralls.js
++++ b/lib/sendToCoveralls.js
+@@ -1,6 +1,6 @@
+ 'use strict';
+ 
+-const request = require('request');
++const fetch = require('node-fetch');
+ const index = require('..');
+ 
+ const sendToCoveralls = (obj, cb) => {
+@@ -16,13 +16,14 @@
+     process.stdout.write(str);
+     cb(null, { statusCode: 200 }, '');
+   } else {
+-    request.post({
+-      url,
+-      form: {
+-        json: str
+-      }
+-    }, (err, response, body) => {
+-      cb(err, response, body);
++    fetch(url, {
++      method: "post",
++      body: str,
++      headers: { 'Content-Type': 'application/json' },
++    }).then(res => {
++      cb(null, res, res.body);
++    }).catch(err => {
++      cb(err);
+     });
+   }
+ };
+--- a/test/sendToCoveralls.js
++++ b/test/sendToCoveralls.js
+@@ -1,7 +1,7 @@
+ 'use strict';
+ 
+ const should = require('should');
+-const request = require('request');
++//const request = require('request');
+ const sinon = require('sinon').createSandbox();
+ const logDriver = require('log-driver');
+ const index = require('..');
+@@ -23,6 +23,7 @@
+     }
+   });
+ 
++  /*
+   it('passes on the correct params to request.post', done => {
+     sinon.stub(request, 'post').callsFake((obj, cb) => {
+       obj.url.should.equal('https://coveralls.io/api/v1/jobs');
+@@ -56,6 +57,7 @@
+       done();
+     });
+   });
++  */
+   it('writes output to stdout when --stdout is passed', done => {
+     const obj = { 'some': 'obj' };
+ 

@@ -1,0 +1,45 @@
+Source: node-coveralls
+Section: javascript
+Priority: optional
+Maintainer: Debian Javascript Maintainers <pkg-javascript-devel@lists.alioth.debian.org>
+Uploaders: Bastien Roucariès <rouca@debian.org>
+Build-Depends: debhelper-compat (= 13)
+ , docbook2x <!nodoc>
+ , mocha <!nocheck>
+ , node-growl (>= 1.10.0) <!nocheck>
+ , node-js-yaml <!nocheck>
+ , node-lcov-parse <!nocheck>
+ , node-log-driver <!nocheck>
+ , node-minimist <!nocheck>
+ , node-fetch <!nocheck>
+ , node-should (>= 8.0) <!nocheck>
+ , node-sinon (>= 7.4.2) <!nocheck>
+ , dh-sequence-nodejs
+Standards-Version: 4.5.0
+Vcs-Browser: https://salsa.debian.org/js-team/node-coveralls
+Vcs-Git: https://salsa.debian.org/js-team/node-coveralls.git
+Homepage: https://github.com/nickmerwin/node-coveralls
+Testsuite: autopkgtest-pkg-nodejs
+Rules-Requires-Root: no
+
+Package: node-coveralls
+Architecture: all
+Depends: ${misc:Depends}
+ , node-growl (>= 1.10.0)
+ , node-js-yaml
+ , node-lcov-parse
+ , node-log-driver
+ , node-minimist
+ , node-fetch
+ , nodejs (>= 10)
+Description: input json-cov output and posts to coveralls.io
+ Coveralls.io is a web service to help you track your code coverage over
+ time, and ensure that all your new code is fully covered.
+ .
+ Coveralls automatically collects your code coverage data, uploads it
+ to their servers and gives you a nice interface to dig into it.
+ .
+ This tools based on node.js allows one to post coverage information
+ to coveralls.io
+ .
+ Node.js is an event-based server-side JavaScript engine.
