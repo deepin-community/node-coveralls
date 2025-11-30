@@ -1,4 +1,6 @@
-0002-Do-not-use-sinon-restore-but-sinon.patch
 0003-Fix-path-with-version-in-test.patch
 0004-Disable-a-test-that-need-a-full-git-tree.patch
 replace-request-by-node-fetch.diff
+fix-test-for-js-yaml-4.patch
+0005-Disable-test-that-fail.patch
+0006-Fix-another-test-failure-with-recent-sinon.patch
