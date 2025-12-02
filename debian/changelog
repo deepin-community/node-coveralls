@@ -1,3 +1,41 @@
+node-coveralls (3.1.1-4) unstable; urgency=medium
+
+  * Fix flaky test by disabling it
+
+ -- Bastien Roucariès <rouca@debian.org>  Sun, 18 Aug 2024 13:10:55 +0000
+
+node-coveralls (3.1.1-3) unstable; urgency=medium
+
+  * Fix FTBFS due to test not working on autopkgtest
+  * Bump policy no change
+
+ -- Bastien Roucariès <rouca@debian.org>  Fri, 16 Aug 2024 19:25:32 +0000
+
+node-coveralls (3.1.1-2) unstable; urgency=medium
+
+  [ Debian Janitor ]
+  * Remove constraints unnecessary since buster
+
+ -- Jelmer Vernooĳ <jelmer@debian.org>  Tue, 22 Nov 2022 21:18:05 +0000
+
+node-coveralls (3.1.1-1) unstable; urgency=medium
+
+  * Team upload
+
+  [ Debian Janitor ]
+  * Remove constraints unnecessary since buster
+
+  [ Yadd ]
+  * Set upstream metadata fields: Bug-Submit.
+  * Fix GitHub tags regex
+  * Update standards version to 4.6.0, no changes needed.
+  * Fix filenamemangle
+  * Update nodejs dependency to nodejs:any
+  * New upstream version 3.1.1
+  * Add test fix for js-yaml ≥ 4
+
+ -- Yadd <yadd@debian.org>  Wed, 24 Nov 2021 14:57:50 +0100
+
 node-coveralls (3.1.0-2) unstable; urgency=medium
 
   * Team upload

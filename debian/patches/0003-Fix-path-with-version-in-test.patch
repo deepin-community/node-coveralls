@@ -1,12 +1,19 @@
-Description: Fix path with version in test
-Author: Bastien Roucariès <roucaries.bastien@gmail.com>
+From: =?utf-8?q?Bastien_Roucari=C3=A8s?= <roucaries.bastien@gmail.com>
+Date: Sun, 18 Aug 2024 13:07:07 +0000
+Subject: Fix path with version in test
+
 Forwarded: no
 Reviewed-By: Xavier Guimard <yadd@debian.org>
 Last-Update: 2019-12-07
+---
+ test/detectLocalGit.js | 7 ++++---
+ 1 file changed, 4 insertions(+), 3 deletions(-)
 
+diff --git a/test/detectLocalGit.js b/test/detectLocalGit.js
+index d2ad525..d4dc9b5 100644
 --- a/test/detectLocalGit.js
 +++ b/test/detectLocalGit.js
-@@ -54,9 +54,10 @@
+@@ -54,9 +54,10 @@ function _cleanTempGitDir() {
  }
  
  function _deleteFolderRecursive(dir) {

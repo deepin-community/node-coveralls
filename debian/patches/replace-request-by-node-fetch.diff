@@ -1,8 +1,17 @@
-Description: replace request by node-fetch
-Author: Xavier Guimard <yadd@debian.org>
+From: Yadd <yadd@debian.org>
+Date: Sun, 18 Aug 2024 13:07:07 +0000
+Subject: replace request by node-fetch
+
 Forwarded: https://github.com/nickmerwin/node-coveralls/issues/309
 Last-Update: 2020-11-04
+Last-Update: 2021-11-24
+---
+ lib/sendToCoveralls.js  | 17 +++++++++--------
+ test/sendToCoveralls.js |  4 +++-
+ 2 files changed, 12 insertions(+), 9 deletions(-)
 
+diff --git a/lib/sendToCoveralls.js b/lib/sendToCoveralls.js
+index 0421556..8d52b4e 100644
 --- a/lib/sendToCoveralls.js
 +++ b/lib/sendToCoveralls.js
 @@ -1,6 +1,6 @@
@@ -13,7 +22,7 @@ Last-Update: 2020-11-04
  const index = require('..');
  
  const sendToCoveralls = (obj, cb) => {
-@@ -16,13 +16,14 @@
+@@ -16,13 +16,14 @@ const sendToCoveralls = (obj, cb) => {
      process.stdout.write(str);
      cb(null, { statusCode: 200 }, '');
    } else {
@@ -35,6 +44,8 @@ Last-Update: 2020-11-04
      });
    }
  };
+diff --git a/test/sendToCoveralls.js b/test/sendToCoveralls.js
+index 26099db..2587d21 100644
 --- a/test/sendToCoveralls.js
 +++ b/test/sendToCoveralls.js
 @@ -1,7 +1,7 @@
@@ -43,10 +54,10 @@ Last-Update: 2020-11-04
  const should = require('should');
 -const request = require('request');
 +//const request = require('request');
- const sinon = require('sinon').createSandbox();
+ const sinon = require('sinon');
  const logDriver = require('log-driver');
  const index = require('..');
-@@ -23,6 +23,7 @@
+@@ -23,6 +23,7 @@ describe('sendToCoveralls', () => {
      }
    });
  
@@ -54,7 +65,7 @@ Last-Update: 2020-11-04
    it('passes on the correct params to request.post', done => {
      sinon.stub(request, 'post').callsFake((obj, cb) => {
        obj.url.should.equal('https://coveralls.io/api/v1/jobs');
-@@ -56,6 +57,7 @@
+@@ -56,6 +57,7 @@ describe('sendToCoveralls', () => {
        done();
      });
    });
