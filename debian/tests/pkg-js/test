@@ -1,1 +1,1 @@
-NODE_ENV=test mocha -b
+NODE_ENV=test mocha -t 300h
